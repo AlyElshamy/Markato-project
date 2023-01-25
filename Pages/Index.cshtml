@@ -1,0 +1,391 @@
+﻿@page
+@model Markatooo.Areas.Admin.Pages.IndexModel
+@{
+    Layout = "Shared/_MainLayout.cshtml";
+    //Layout = "";
+}
+
+@*<style>
+    .page-section .wpb_row {
+        margin: 0;
+    }
+
+    .wpb_row {
+        position: relative;
+    }
+
+    .section {
+        overflow: hidden;
+        background-position: 50% 50%;
+        background-repeat: no-repeat;
+        border-left: none !important;
+        border-right: none !important;
+    }
+
+    .iconbox-style-2 .iconbox-icon {
+        float: left;
+        width: 30px;
+        margin-top: 2px;
+        text-align: center;
+    }
+
+    .section img {
+        display: inline-block;
+        margin: 0;
+        vertical-align: middle;
+    }
+
+    img {
+        max-width: 100%;
+        height: auto;
+    }
+
+    .single_image img {
+        display: inline-block !important;
+        max-width: 100%;
+        height: auto;
+        transition: all 0.2s ease;
+        -webkit-transform-style: preserve-3d;
+    }
+
+    .single_image.align-center {
+        text-align: center !important;
+    }
+
+    .iconbox-style-2 .iconbox-icon {
+        text-align: center;
+    }
+
+    .wpb_column > .wpb_wrapper > :last-child {
+        margin-bottom: 0;
+    }
+
+    .single_image.align-center {
+        text-align: center !important;
+    }
+
+    .iconbox h3 {
+        margin: 0 0 10px 0;
+    }
+
+    h3 {
+        font: 600 18px Open\ Sans,Arial,Helvetica,sans-serif;
+        color: #333;
+    }
+
+    .wpb_row, .wpb_content_element, ul.wpb_thumbnails-fluid > li, .last_toggle_el_margin, .wpb_button {
+        margin-bottom: 40px;
+    }
+
+    .iconbox {
+        margin: 0 0 40px 0;
+        margin-bottom: 40px;
+    }
+
+    .wpb_row .wpb_column p:last-child {
+        margin: 0;
+    }
+
+    .iconbox p:last-child {
+        margin: 0;
+    }
+
+    p {
+        margin: 0 0 13px 0 !important;
+    }
+</style>*@
+<!-- Slideshow
+
+            ============================================= -->
+<div id="slideshowid" class="owl-carousel owl-theme single-slideshow" data-autoplay="true" data-loop="true" data-autoheight="true" data-nav="true" data-items="1">
+    <div class="item">
+        <section class="hero-wrap">
+            <div class="hero-mask opacity-7 bg-dark"></div>
+            <div class="hero-bg" style="background-image:url('files/images/bg/image-1.jpg');"></div>
+            <div class="hero-content d-flex fullscreen-with-header py-5">
+                <div class="container my-auto text-center">
+                    <h2 class="text-16 text-white">@sharedResource["Send Money"]</h2>
+                    <p class="text-5 text-white mb-4">
+                        @sharedResource["Quickly and easily send and request money online with Pay Directly."]<br class="d-none d-lg-block">
+                        @*@sharedResource["Over 180 countries and 120 currencies supported."]"*@
+                    </p>
+                    <a asp-page="/Createlink" class="btn btn-primary m-2">@sharedResource["Start"] </a>
+                </div>
+            </div>
+        </section>
+    </div>
+    <div class="item">
+        <section class="hero-wrap">
+            <div class="hero-bg" style="background-image:url('files/images/bg/image-3.jpg');"></div>
+            <div class="hero-content d-flex fullscreen-with-header py-5">
+                <div class="container my-auto">
+                    <div class="row">
+                        <div class="col-12 col-lg-8 col-xl-7 text-center text-lg-start">
+                            <h2 class="text-13 text-white">@sharedResource["Online Payment Services."]</h2>
+                            <p class="text-5 text-white mb-4">@sharedResource["Start accepting credit and debit cards online faster."]</p>
+                            @*<a href="#" class="btn btn-primary me-3">Get started for free</a> <a class="btn btn-link text-light video-btn" href="#" data-src="https://www.youtube.com/embed/7e90gBu4pas" data-bs-toggle="modal" data-bs-target="#videoModal"><span class="me-2"><i class="fas fa-play-circle"></i></span>Watch Demo</a>*@
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </div>
+</div>
+<!-- Slideshow end -->
+<!-- Why choose
+============================================= -->
+<section class="section bg-white">
+    <div class="container">
+        <h2 class="text-9 text-center">@sharedResource["Why should you choose Pay Directly?"]</h2>
+        <p class="lead text-center mb-5">@sharedResource["Here’s Top 4 reasons why using a Pay Directly."]</p>
+        <div class="row gy-5">
+            <div class="col-sm-6 col-lg-3">
+                <div class="featured-box">
+                    <div class="featured-box-icon text-primary"> <i class="fas fa-hand-pointer"></i> </div>
+                    <h3>@sharedResource["Easy to use"]</h3>
+                    <p class="text-3">@sharedResource["we strive to give our clients the convenience they always wanted."].</p>
+                    @*<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ms-2"></i></a>*@
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="featured-box">
+                    <div class="featured-box-icon text-primary"> <i class="fas fa-share"></i> </div>
+                    <h3>@sharedResource["Faster Payments"]</h3>
+                    <p class="text-3">@sharedResource["We seek to provide the easiest and fatest onboarding process."]</p>
+                    @*<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ms-2"></i></a>*@
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="featured-box">
+                    <div class="featured-box-icon text-primary"> <i class="fas fa-dollar-sign"></i> </div>
+                    <h3>@sharedResource["Zero Fees"]</h3>
+                    <p class="text-3">@sharedResource["We offer our service without any fees."]</p>
+                    @*<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ms-2"></i></a>*@
+                </div>
+            </div>
+            <div class="col-sm-6 col-lg-3">
+                <div class="featured-box">
+                    <div class="featured-box-icon text-primary"> <i class="fas fa-lock"></i> </div>
+                    <h3>@sharedResource["100% secure"]</h3>
+                    <p class="text-3">@sharedResource["We adhere to the highest compliance standards, as well as bank-level security, to provide you with the peace of mind you require to focus on growing your business."]</p>
+                    @*<a href="#" class="btn-link text-3">Learn more<i class="fas fa-chevron-right text-1 ms-2"></i></a>*@
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- Why choose end -->
+<!-- Payment Solutions
+============================================= -->
+@*<section class="section">
+        <div class="container overflow-hidden">
+            <div class="row g-5">
+                <div class="col-lg-5 col-xl-6 d-flex">
+                    <div class="my-auto">
+                        <h2 class="text-9">@sharedResource["Payment Solutions for everyone"] .</h2>
+                        <p class="text-4">@sharedResource["Quidam lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. Lisque persius interesset his et, in quot quidam persequeris vim, ad mea essent possim iriure. lisque persius interesset his et, in quot quidam mea essent possim iriure"].</p>
+                        <a href="#" class="btn-link text-4">@sharedResource["Find more solution"]<i class="fas fa-chevron-right text-2 ms-2"></i></a>
+                    </div>
+                </div>
+                <div class="col-lg-7 col-xl-6">
+                    <div class="row g-4 banner style-2 justify-content-center">
+                        <div class="col-12 col-sm-6 text-center">
+                            <div class="item rounded shadow d-inline-block">
+                                <a href="#">
+                                    <div class="caption rounded-bottom">
+                                        <h2 class="text-5 fw-400 mb-0">@sharedResource["Freelancer"] </h2>
+                                    </div>
+                                    <div class="banner-mask"></div>
+                                    <img class="img-fluid" src="files/images/anyone-freelancer.jpg" width="410" height="350" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <div class="item rounded shadow d-inline-block">
+                                <a href="#">
+                                    <div class="caption rounded-bottom">
+                                        <h2 class="text-5 fw-400 mb-0">@sharedResource["Online Shopping"] </h2>
+                                    </div>
+                                    <div class="banner-mask"></div>
+                                    <img class="img-fluid" src="files/images/anyone-online-shopping.jpg" width="410" height="350" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 mb-sm-0 text-center">
+                            <div class="item rounded shadow d-inline-block">
+                                <a href="#">
+                                    <div class="caption rounded-bottom">
+                                        <h2 class="text-5 fw-400 mb-0">Online Sellers</h2>
+                                    </div>
+                                    <div class="banner-mask"></div>
+                                    <img class="img-fluid" src="files/images/anyone-online-sellers.jpg" width="410" height="350" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                        <div class="col-12 col-sm-6 text-center">
+                            <div class="item rounded shadow d-inline-block">
+                                <a href="#">
+                                    <div class="caption rounded-bottom">
+                                        <h2 class="text-5 fw-400 mb-0">@sharedResource["Affiliate Marketing"] </h2>
+                                    </div>
+                                    <div class="banner-mask"></div>
+                                    <img class="img-fluid" src="files/images/anyone-affiliate-marketing.jpg" width="410" height="350" alt="banner">
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>*@
+<!-- Payment Solutions end -->
+<!-- What can you do
+============================================= -->
+<section class="section bg-white">
+    <div class="container">
+        <h2 class="text-9 text-center">@sharedResource["How does it work?"]</h2>
+        <p class="lead text-center mb-5">@sharedResource["Pay Directly is a powerful and reliable Payment Solution for businesses. And the quickest way to accept payments by sending invoices to your customers anytime on the go and get paid easier."]</p>
+        <div class="row g-4">
+            <div class="col-sm-12 col-lg-3">
+
+                <div class="featured-box style-5 rounded">
+                    <div class="featured-box-icon text-primary"> <img src="~/Images/Online-Payments.png" class="fas fa-share-square" /> </div>
+                    <h3>@sharedResource["Create an invoice"] </h3>
+                </div>
+
+            </div>
+
+
+            <div class="col-sm-12 col-lg-3" style="margin-left: 49rem; margin-right: 49rem; margin-top: -15rem; ">
+
+                <div class="featured-box style-5 rounded">
+                    <div class="featured-box-icon text-primary" style="height: 7rem;"> <img src="~/Images/Online-Payment-Kuwait.png" class="fas fa-shopping-bag" /> </div>
+                    <h3>@sharedResource["Get paid"]</h3>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</section>
+<!-- What can you do end -->
+<!-- How work
+============================================= -->
+<section class="section" style="background-color: ghostwhite ">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-6">
+                <div class="card bg-dark-3 shadow-sm border-0">
+                    <img class="card-img img-fluid opacity-8" src="~/Images/goSell-accept-payments-online.png" width="570" height="362" alt="banner">
+                    <div class="card-img-overlay p-0"> @*<a class="d-flex h-100 video-btn" href="#" data-src="https://www.youtube.com/embed/7e90gBu4pas" data-bs-toggle="modal" data-bs-target="#videoModal"> <span class="playButton playButton-pulsing bg-white m-auto"><i class="fas fa-play"></i></span> </a>*@ </div>
+                </div>
+            </div>
+            <div class="col-lg-6 mt-5 mt-lg-0">
+                <div class="ms-4">
+                    @*<h2 class="text-9">How does it work?</h2>
+                    <p class="text-4">Quidam lisque persius interesset his et, in quot quidam persequeris essent possim iriure. Lorem Ipsum is simply dummy text of the printing and typesetting industry.</p>*@
+                    <ul class="list-unstyled text-3 lh-lg">
+                        <li><img src="https://upayments.com/en/wp-content/uploads/sites/4/2020/07/upay-icon1.png" class="iconimg" alt="Create an invoice in seconds" data-pagespeed-url-hash="3956408570" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">&nbsp; <span style="font-size: 25px; font-weight: bolder; position: relative; bottom: 1rem;">@sharedResource["Create an invoice in seconds"]</span>
+
+                                                                                                                                                                                                                                                                                   <p style="padding-left: 3rem;padding-right:3rem">
+                                                                                                                                                                                                                                                                                       @sharedResource["Simply enter your customer details, amount and bingo! Your invoice is created and sent to your client to pay."]
+                                                                                                                                                                                                                                                                                   </p>
+                        </li>
+                        <li><img src="https://upayments.com/en/wp-content/uploads/sites/4/2020/07/upay-icon2.png" class="iconimg" alt="Send via email or SMS" data-pagespeed-url-hash="4250908491" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">&nbsp;<span style="font-size: 25px; font-weight: bolder; position: relative; bottom: 1rem;">&nbsp;<span style="font-size: 25px; font-weight: bold; position: relative; bottom: 0;">
+    @sharedResource["Send via email or SMS"]</span></span>
+                                                                                                                                                                                                                                                                           <p style="padding-left: 3rem;padding-right:3rem">
+                                                                                                                                                                                                                                                                               @sharedResource["Enter your customer’s email address and mobile number—it’s that simple."]
+</li>
+                        <li>
+                            <img src="https://upayments.com/en/wp-content/uploads/sites/4/2020/07/upay-icon3.png" class="iconimg" alt="Accept Knet and credit card payments" data-pagespeed-url-hash="250441116" onload="pagespeed.CriticalImages.checkImageForCriticality(this);">&nbsp;<span style="font-size: 21px; font-weight: bolder; position: relative; bottom: 1rem;">
+    @sharedResource["Accept Knet, NBK and credit card payments"]</span>
+                                                                                                                                                                                                                                                                                         <p style="padding-left: 3rem;padding-right:3rem">
+                                                                                                                                                                                                                                                                                             @sharedResource["Pay Directly can help you accept payments from your customers online. Simply send the invoice , or if they’re around, ask them to scan the QR and pay!"]
+                                                                                                                                                                                                                                                                                         </p>
+</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<!-- How work end -->
+<!-- Testimonial
+============================================= -->
+<!--<section class="section bg-white">
+    <div class="container">
+        <h2 class="text-9 text-center">@sharedResource["What people are saying about Payyed"]</h2>
+        <p class="lead text-center mb-4">@sharedResource["A payments experience people love to talk about"]</p>
+        <div class="owl-carousel owl-theme" data-autoplay="true" data-nav="true" data-loop="true" data-margin="30" data-slideby="2" data-stagepadding="5" data-items-xs="1" data-items-sm="1" data-items-md="2" data-items-lg="2">
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["Easy to use, reasonably priced simply dummy text of the printing and typesetting industry. Quidam lisque persius interesset his et, in quot quidam possim iriure"] .”</p>
+                    <strong class="d-block fw-500">Jay Shah</strong> <span class="text-muted">@sharedResource["Founder at Icomatic Pvt Ltd"] </span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["I am happy Working with printing and typesetting industry. Quidam lisque persius interesset his et, in quot quidam persequeris essent possim iriure"] .”</p>
+                    <strong class="d-block fw-500">@sharedResource["Patrick Cary"] </strong> <span class="text-muted">@sharedResource["Freelancer from USA"] </span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["Fast easy to use transfers to a different currency. Much better value that the banks"].”</p>
+                    <strong class="d-block fw-500">@sharedResource["De Mortel"] </strong> <span class="text-muted">@sharedResource["Online Retail"] </span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["I have used them twice now. Good rates, very efficient service and it denies high street banks an undeserved windfall. Excellent"] .”</p>
+                    <strong class="d-block fw-500">@sharedResource["Chris Tom"] </strong> <span class="text-muted">@sharedResource["User from UK"]</span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["It's a real good idea to manage your money by payyed. The rates are fair and you can carry out the transactions without worrying"] !”</p>
+                    <strong class="d-block fw-500">@sharedResource["Mauri Lindberg"] </strong> <span class="text-muted">@sharedResource["Freelancer from Australia"] </span>
+                </div>
+            </div>
+            <div class="item">
+                <div class="testimonial rounded text-center p-4">
+                    <p class="text-9 text-muted opacity-2 lh-base mb-0"><i class="fa fa-quote-left"></i></p>
+                    <p class="text-4">“@sharedResource["Only trying it out since a few days. But up to now excellent. Seems to work flawlessly. I'm only using it for sending money to friends at the moment"] .”</p>
+                    <strong class="d-block fw-500">@sharedResource["Dennis Jacques"]</strong> <span class="text-muted">@sharedResource["User from USA"]</span>
+                </div>
+            </div>
+        </div>
+        <div class="text-center mt-4"><a href="#" class="btn-link text-4">@sharedResource["See more people review"]<i class="fas fa-chevron-right text-2 ms-2"></i></a></div>
+    </div>
+</section>-->
+<!-- Testimonial end -->
+<!-- Customer Support
+============================================= -->
+<!--<section class="hero-wrap section shadow-md">
+    <div class="hero-mask opacity-9 bg-primary"></div>
+    <div class="hero-bg" style="background-image:url('files/images/bg/image-2.jpg');"></div>
+    <div class="hero-content py-5">
+        <div class="container text-center">
+            <h2 class="text-9 text-white">@sharedResource["Awesome Customer Support"] </h2>
+            <p class="lead text-white mb-4">@sharedResource["Have you any query? Don't worry. We have great people ready to help you whenever you need it"].</p>
+            <a href="#" class="btn btn-light">@sharedResource["Find out more"]</a>
+        </div>
+    </div>
+</section>-->
+<!-- Customer Support end -->
+<!-- Mobile App
+============================================= -->
+<!--<section class="section py-5">
+    <div class="container">
+        <div class="justify-content-center text-center">
+            <h2 class="text-9">@sharedResource["Get the app"] </h2>
+            <p class="lead mb-4">@sharedResource["Download our app for the fastest, most convenient way to send & get Payment"] .</p>
+            <a class="d-inline-flex mx-3" href=""><img alt="" width="168" height="49" src="files/images/app-store.png"></a> <a class="d-inline-flex mx-3" href=""><img alt="" width="166" height="49" src="files/images/google-play-store.png"></a>
+        </div>
+    </div>
+</section>-->
+<!-- Mobile App end -->

@@ -1,0 +1,180 @@
+﻿@page
+@model Markatooo.Areas.Admin.Pages.Customer.CreatelinkModel
+@inject Markatooo.Data.MarkatoooContext _context
+@{
+    Layout = "~/Pages/Shared/_MainLayout.cshtml";
+    var gateways = _context.Gateways.Where(e => e.isActive == true && e.GateWayId != 4).ToList();
+}
+<style>
+    .input-hidden {
+        position: absolute;
+        left: -9999px;
+    }
+
+    input[type=radio]:checked + label > img {
+        border: 1px solid #fff;
+        box-shadow: 0 0 3px 3px #090;
+    }
+
+    /* Stuff after this is only to make things more pretty */
+    input[type=radio] + label > img {
+        border: 1px solid #444;
+        width: 80px;
+        height: 80px;
+        transition: 500ms all;
+    }
+
+    input[type=radio]:checked + label > img {
+        transform: rotateZ(-10deg) rotateX(10deg);
+    }
+
+    .dx-tagbox-popup-wrapper .dx-list-select-all {
+        display: flex;
+    }
+
+
+    .dx-button {
+        color: black !important;
+        background: #feea62 !important;
+    }
+
+    .form-select::selection {
+        color: black !important;
+        background: #feea62 !important;
+    }
+
+    .option:hover {
+        color: black !important;
+        background: #feea62 !important;
+    }
+</style>
+
+<div id="content" class="py-4">
+    <div class="container">
+
+        <!-- Steps Progress bar -->
+        @*<div class="row mt-4 mb-5">
+                <div class="col-lg-11 mx-auto">
+                    <div class="row widget-steps">
+                        <div class="col-4 step active">
+                            <div class="step-name">Details</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                            <a href="#" class="step-dot"></a>
+                        </div>
+                        <div class="col-4 step disabled">
+                            <div class="step-name">Confirm</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                            <a href="#" class="step-dot"></a>
+                        </div>
+                        <div class="col-4 step disabled">
+                            <div class="step-name">Success</div>
+                            <div class="progress">
+                                <div class="progress-bar"></div>
+                            </div>
+                            <a href="#" class="step-dot"></a>
+                        </div>
+                    </div>
+                </div>
+            </div>*@
+        <h2 class="fw-400 text-center mt-3">@sharedResource["Request Money"]</h2>
+        <p class="lead text-center mb-4">@sharedResource["Request your payment on anytime, anywhere in the world"].</p>
+        <div class="row">
+            <div class="col-md-9 col-lg-7 col-xl-6 mx-auto">
+                <div class="bg-white shadow-sm rounded p-3 pt-sm-4 pb-sm-5 px-sm-5 mb-4">
+                    <h3 class="text-5 fw-400 mb-3 mb-sm-4">@sharedResource["Payer Details"]</h3>
+                    <hr class="mx-n3 mx-sm-n5 mb-4">
+                    <!-- Request Money Form
+                    ============================================= -->
+                    <form id="form" method="post" enctype="multipart/form-data">
+                        <div class="mb-3">
+                            <label for="@Model.model.FirstName" class="form-label">@(sharedResource["First Name"])</label>
+                            <input type="text" asp-for="@Model.model.FirstName" class="form-control" data-bv-field="payerName" id="payerName" required placeholder=@(sharedResource["Enter First Name"])>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.LastName" class="form-label">@(sharedResource["Last Name"])</label>
+                            <input type="text" asp-for="@Model.model.LastName" class="form-control" data-bv-field="payerName" id="LastName" required placeholder=@(sharedResource["Enter Last Name"])>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.PhoneNumber" class="form-label">@(sharedResource["Phone Number"])</label>
+                            <input type="number" asp-for="@Model.model.PhoneNumber" class="form-control" data-bv-field="payerName" id="PhoneNumber" required placeholder=@(sharedResource["Enter Phone Number"])>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.Email" class="form-label">@(sharedResource["Email"])</label>
+                            <input type="email" asp-for="@Model.model.Email" class="form-control" data-bv-field="emailid" id="emailID" required placeholder=@(sharedResource["Enter Email Address"])>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.Amout" class="form-label">@(sharedResource["Amount"])</label>
+                            <div class="input-group">
+                                <span class="input-group-text">KWD</span>
+                                <input type="text" pattern="[0-9]?+([\.,][0-9]+)?" min="0" class="form-control" data-bv-field="amount" id="amount" asp-for="@Model.model.Amout" value="" required placeholder="@(sharedResource["Enter Amount"])">
+
+                            </div>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.OrderNumber" class="form-label">@(sharedResource["Order Number"])</label>
+                            <input type="text" asp-for="@Model.model.OrderNumber" class="form-control" data-bv-field="OrderNumber" required placeholder=@(sharedResource["Enter Order Number"])>
+                        </div>
+                        <div class=" mb-3">
+                            <label class="form-check-label" for="@Model.model.GateWayId">@sharedResource["Gateway"]</label>
+                            <br />
+                            <br />
+                            @foreach (var item in gateways)
+                            {
+                                <input id="@item.GateWayId" type="radio" class="input-hidden" value="@item.GateWayId" asp-for="@Model.model.GateWayId" />
+                                <label for="@item.GateWayId" style="display: grid !important">
+                                    <img src="~/Images/@item.Image"
+                                         alt="logo" /> <span style="margin-top: -3rem; margin-left: 7rem; margin-right: 7rem"> @item.Title</span>
+                                    </label>
+
+                                    <br />
+                                }
+                        </div>
+
+                        <div class="mb-3">
+                            <label for="@Model.model.Remarks" class="form-label">@(sharedResource["Remarks"])</label>
+                            <textarea class="form-control" rows="2" id="description" asp-for="@Model.model.Remarks" placeholder=@(sharedResource["Enter Remarks"])></textarea>
+                        </div>
+                        <div class="mb-3">
+                            <label for="@Model.model.Attachment" class="form-label">@(sharedResource["Attachment"])</label>
+                            @(Html.DevExtreme().FileUploader()
+                    .Name("file")
+                    .SelectButtonText(sharedResource["Add Attachment"])
+                    .LabelText("")
+
+                    .UploadMode(FileUploadMode.UseForm)
+                    .RtlEnabled(bool.Parse(sharedResource["ArLang"]))
+                    .Height(70)
+
+                            )
+                        </div>
+                        <div class="d-grid mt-4"><button type="submit" onclick="GatewayValidation()" class="btn btn-primary">@(sharedResource["Create"])</button></div>
+                    </form>
+                    <!-- Request Money Form end -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+@await Component.InvokeAsync("NToastNotify")
+<script>
+    //function custom_template(obj) {
+    //    var data = $(obj.element).data();
+    //    var text = $(obj.element).text();
+    //    if (data && data['img_src']) {
+    //        img_src = data['img_src'];
+    //        template = $("<div><img src=\"" + img_src + "\" style=\"width:100%;height:150px;\"/><p style=\"font-weight: 700;font-size:14pt;text-align:center;\">" + text + "</p></div>");
+    //        return template;
+    //    }
+    //}
+    //var options = {
+    //    'templateSelection': custom_template,
+    //    'templateResult': custom_template,
+    //}
+    //$('#id_select2_example').select2(options);
+    //$('.select2-container--default .select2-selection--single').css({ 'height': '220px' });
+
+</script>
